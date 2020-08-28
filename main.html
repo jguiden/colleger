@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Colleger</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link href="css/global.css" rel="stylesheet" type="text/css" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/modal.css" rel="stylesheet" type="text/css" />
+    <link href="css/classes.css" rel="stylesheet" type="text/css" />
+    <link href="css/hw.css" rel="stylesheet" type="text/css" />
+    <script src = "https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script>
+        var firebaseConfig = {
+          apiKey: "AIzaSyC7_iHhPwvibI80PP5hd4ZNNANeAZ49OGE",
+          authDomain: "colleger-18aac.firebaseapp.com",
+          databaseURL: "https://colleger-18aac.firebaseio.com",
+          projectId: "colleger-18aac",
+          storageBucket: "colleger-18aac.appspot.com",
+          messagingSenderId: "940885702519",
+          appId: "1:940885702519:web:12cd70573aba2a6b"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript" src="js/info_builder.js"></script>
+    <script type="text/javascript" src="js/director.js"></script>
+    <script type="text/javascript" src="js/classes.js"></script>
+    <script type="text/javascript" src="js/hw_builder.js"></script>
+    <div class="wrapper">
+        <div class="container-fluid header">
+            <!--<p class="text-center header-text">Colleger</p>-->
+            <p class="header-title">Colleger</p>
+            <img class="header-logo" src="https://wit.edu/sites/default/files/publications/W-logo-on-transparent.png" alt="logo"/>
+        </div>
+        
+        <div class="section-wrapper">
+            <!--<div class="img-container"><img class="logo" src="https://wit.edu/sites/default/files/publications/W-logo-on-black.png" alt="wit"/></div>-->
+            <div onclick="openModal(this.id);" id="info" class="section media">
+                <i class="fas fa-id-card icon"></i>
+                <p class="section-text h1">My Info</p>
+            </div>
+            
+            <div onclick="openDaySelect();" class="section media">
+                <i class="fas fa-book-open icon"></i>
+                <p class="section-text h1">Classes</p>
+            </div>
+            
+            <div onclick="openHomework();" class="section media">
+                <i class="fas fa-pencil-alt icon"></i>
+                <p class="section-text h1">Homework</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="c-modal-bg" id="info-modal">
+        <div class="c-modal-content" id="modal-content">
+            <div class="c-modal-top">
+                <i onclick="closeModal(this.id);" class="fas fa-times exit-btn" id="info-close-modal"></i>
+            </div>
+            <div class="c-modal-header">
+                <h1>My Info</h1>
+                <hr>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="c-modal-bg" id="classes-modal">
+        <div class="c-modal-content" id="class-days">
+            <div class="c-modal-top">
+                <i onclick="closeModal(this.id);" class="fas fa-times exit-btn" id="class-close-modal"></i>
+            </div>
+            <div class="c-modal-header">
+                <h1>Select Day</h1>
+                <hr>
+            </div>
+            
+            <div class="day-wrapper">
+                <div class="day" id="mon" onclick="dayBuilder(this.id);" style="background-color: #AA2F2F;">
+                    <span class="day-text">Monday</span>
+                </div>
+                <div class="day" id="tue" onclick="dayBuilder(this.id);" style="background-color: #A8732F;">
+                    <span class="day-text">Tuesday</span>
+                </div>
+                <div class="day" id="wed" onclick="dayBuilder(this.id);" style="background-color: #A8512F;">
+                    <span class="day-text">Wednesday</span>
+                </div>
+                <div class="day" id="thu" onclick="dayBuilder(this.id);" style="background-color: #A8792F;">
+                    <span class="day-text">Thursday</span>
+                </div>
+                <div class="day" id="fri" onclick="dayBuilder(this.id);" style="background-color: #AA2F2F;">
+                    <span class="day-text">Friday</span>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+    <div class="c-modal-bg" id="day-modal">
+        <div class="c-modal-content" id="class-content">
+            <div class="c-modal-top">
+                <i onclick="closeModal(this.id);" class="fas fa-times exit-btn" id="day-close-modal"></i>
+            </div>
+            <div class="c-modal-header">
+                <h1 id="day-title"></h1>
+                <hr>
+            </div>
+        </div>
+    </div>
+    
+    <div class="c-modal-bg" id="hw-modal">
+        <div class="c-modal-content" id="hw-content">
+            <div class="c-modal-top">
+                <i onclick="closeModal(this.id);" class="fas fa-times exit-btn" id="hw-close-modal"></i>
+            </div>
+            <div class="c-modal-header">
+                <h1 id="hw-title">Homework</h1>
+                <div class="hw-add-section">
+                    <div onclick="addHomework();" class="hw-add-btn"><span class="add-btn-title">Add</span></div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    
+    <div class="c-modal-bg" id="add-modal">
+        <div class="c-modal-content" id="add-content">
+            <div class="c-modal-top">
+                <i onclick="closeAddModal();" class="fas fa-times exit-btn" id="add-close-modal"></i>
+            </div>
+            <div class="c-modal-header">
+                <h1 id="add-title">Add Homework</h1>
+                <hr>
+            </div>
+            
+            <form class="add-form" id="add-form">
+                <p  class="add-class-title">Class</p>
+                <input type="text" id="add-class" placeholder="Enter value">
+                <p  class="add-class-title">Due Date</p>
+                <input type="text" id="add-due" placeholder="Enter value">
+                <p class="add-desc-title">Description</p>
+                <textarea class="add-desc" id="add-desc" rows="4" placeholder="Enter value"></textarea>
+                <div class="hw-add-section">
+                    <div onclick="addNewHomework();" class="hw-add-btn"><span class="add-btn-title">Add</span></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+</body>
+</html>

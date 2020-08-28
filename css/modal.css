@@ -1,0 +1,70 @@
+.c-modal-bg {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.c-modal-content {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 90vw;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 30px;
+    padding: 0px 1.2vh 30px 1.2vh;
+}
+.c-modal-top {
+    min-width: 100%;
+    height: auto;
+    float: left;
+}
+.exit-btn {
+    font-size: 1.5em;
+    float: right;
+    padding: 25px;
+    padding-bottom: 0;
+    color: grey;
+}
+.c-modal-header {
+    width: 100%;
+    padding: 20px 10px 20px 20px;
+    letter-spacing: 3px;
+    float: left;
+    font-size: 1.3em;
+    color: #9E402D;
+    text-align: center;
+    text-transform: uppercase;
+}
+.c-modal-header h1 { font-size: 1.2em; }
+.data-section {
+    width: 100%;
+    min-height: 5vh;
+    padding: 10px 35px 10px 35px;
+    font-size: 1.1em;
+}
+.data-title {
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #494949;
+}
+.data { float: right; }
+.day-wrapper { text-align: center; }
+.day {
+    border-radius: 40px;
+    margin: 1vh;
+    text-align: center;
+    display: inline-block;
+}
+.day-text {
+    line-height: 60px;
+    font-size: 1.3em;
+    padding: 50px 25px 50px 25px;
+    color: white;
+    letter-spacing: 2px;
+}

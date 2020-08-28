@@ -1,0 +1,30 @@
+.section-wrapper {
+    background-color: #EFEFEF;
+    background-image: url('../img/bg.png');
+    padding: 5vh 0 2vh 0;
+    border-bottom: 15px solid #333;
+}
+.section {
+    color: white;
+    margin: 0vh 6vh 2vh 6vh;
+    padding: 2.5vh;
+    padding-left: 5vh;
+    background-color: #333;
+    border-radius: 15px;
+}
+.section-text {
+    font-size: 1.3em;
+    line-height: 8vh;
+    letter-spacing: 3px;
+}
+.icon {
+    font-size: 2em;
+    padding-right: 5vw;
+    line-height: 8vh;
+}
+.logo {
+    width: 75vw;
+    margin: 30px;
+    border-radius: 30px;
+    opacity: .95;
+}
